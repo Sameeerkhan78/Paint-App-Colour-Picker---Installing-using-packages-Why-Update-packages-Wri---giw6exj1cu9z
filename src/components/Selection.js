@@ -1,16 +1,14 @@
-import React, { Component, useState } from "react";
 
-const TownComponent=(props)=>{
-     return(
-                <ol>           
-                        {
-                            props.arrayStates2[props.indexState2].cities[props.indexCity].towns.map((eTown,indexT)=>{
-                                   
-                                    return <li id={`town${indexT+1}`} value={indexT+1} onClick={(e)=>{e.stopPropagation()}}>{eTown.name}</li>})
-                    
-                        }
-                </ol>
-            )
+import React, { useState } from "react";
+
+export default function Selection(props) {
+  let [style, setStyle] = useState({ background: "" });
+
+  let applyColor = props.applyColor;
+
+  return (
+    <div className="fix-box" onClick={() => applyColor(setStyle)} style={style}>
+      <h2 className="subheading">Selection</h2>
+    </div>
+  );
 }
-
-export default TownComponent;
